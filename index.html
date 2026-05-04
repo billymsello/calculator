@@ -1,45 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Calculator | Made by Morapeli Billy Sello of MBS Productions</title>
     <link rel="stylesheet" href="index.css">
+    <script>
+        function calculate() {
+            document.getElementById('display').value = document.getElementById('display').value.replace(/×/g, '*').replace(/÷/g, '/').replace(/[−–—]/g, '-');
+            display.value = eval(document.getElementById('display').value);
+        }
+    </script>
 </head>
+
 <body>
     <main>
         <div class="bigbox">
             <div class="displaybox">
-                <input type="text" class="display" name="display">
+                <input type="text" class="display" name="display" id="display" readonly>
             </div>
             <div class="rows">
                 <div class="row row1">
-                    <button class="grey">DEL</button>
-                    <button class="grey">AC</button>
-                    <button class="grey">%</button>
-                    <button class="orange">/</button>
+                    <button class="grey" onclick="display.value = display.value.toString().slice(0,-1) ">DEL</button>
+                    <button class="grey" onclick="display.value = ' ' ">AC</button>
+                    <button class="grey" onclick="display.value += '.' ">.</button>
+                    <button class="orange" onclick="display.value += '÷' ">÷</button>
                 </div>
                 <div class="row row2">
-                    <button onclick = "display.value += '7' ">7</button>
-                    <button onclick = "display.value += '8' ">8</button>
-                    <button onclick = "display.value += '9' ">9</button>
-                    <button class="orange" onclick = "display.value += '×' ">×</button>
+                    <button onclick="display.value += '7' ">7</button>
+                    <button onclick="display.value += '8' ">8</button>
+                    <button onclick="display.value += '9' ">9</button>
+                    <button class="orange" onclick="display.value += '×' ">×</button>
                 </div>
                 <div class="row row3">
-                    <button onclick = "display.value += '4' ">4</button>
-                    <button onclick = "display.value += '5' ">5</button>
-                    <button onclick = "display.value += '6' ">6</button>
-                    <button class="orange" onclick = "display.value += '−' ">−</button>
+                    <button onclick="display.value += '4' ">4</button>
+                    <button onclick="display.value += '5' ">5</button>
+                    <button onclick="display.value += '6' ">6</button>
+                    <button class="orange" onclick="display.value += '−' ">−</button>
                 </div>
                 <div class="row row4">
-                    <button onclick = "display.value += '1' ">1</button>
-                    <button onclick = "display.value += '2' ">2</button>
-                    <button onclick = "display.value += '3' ">3</button>
-                    <button class="orange" onclick = "display.value += '+' ">+</button>
+                    <button onclick="display.value += '1' ">1</button>
+                    <button onclick="display.value += '2' ">2</button>
+                    <button onclick="display.value += '3' ">3</button>
+                    <button class="orange" onclick="display.value += '+' ">+</button>
                 </div>
                 <div class="row row5">
-                    <button>-</button>
-                    <button>0</button>
-                    <button>.</button>
-                    <button class="orange">=</button>
+                    <button onclick="display.value += '(' ">(</button>
+                    <button onclick="display.value += '0' ">0</button>
+                    <button onclick="display.value += ')' ">)</button>
+                    <button class="orange" onclick="calculate() ">=</button>
                 </div>
             </div>
         </div>
