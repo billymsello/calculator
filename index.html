@@ -4,11 +4,20 @@
 <head>
     <title>Calculator | Made by Morapeli Billy Sello of MBS Productions</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/jpeg" href="calculator.png">
     <script>
         function calculate() {
-            document.getElementById('display').value = document.getElementById('display').value.replace(/×/g, '*').replace(/÷/g, '/').replace(/[−–—]/g, '-');
-            display.value = eval(document.getElementById('display').value);
-        }
+                const displayElem = document.getElementById('display');
+                let expression = displayElem.value;
+
+                // Replace friendly symbols for eval (without changing displayed value yet)
+                expression = expression.replace(/×/g, '*')
+                    .replace(/÷/g, '/')
+                    .replace(/[−–—]/g, '-');
+
+                const result = eval(expression);
+                displayElem.value = result;   // Show the numeric result
+            }
     </script>
 </head>
 
